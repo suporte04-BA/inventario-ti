@@ -182,9 +182,9 @@ function mockFetch(url, opts) {
 
     if (url.indexOf('/api/auth/login') !== -1) return mockAuth(body.username, body.senha);
     if (url.indexOf('/api/auth/me') !== -1) return { username: localStorage.getItem('userName') || 'admin', nomeCompleto: localStorage.getItem('userName') || 'Administrador', perfil: getPerfil() };
-    if (url.indexOf('/api/histórico/') !== -1) return [];
+    if (url.indexOf('/api/historico/') !== -1 || url.indexOf('/api/histórico/') !== -1) return [];
     if (url.indexOf('/api/computadores/manutencao-vencida') !== -1) {
-        var vencidos = MOCK_COMPUTADORES.filter(function(c) { return c.status !== 'ATIVO' && c.status !== 'CONCLUIDO'; }).map(function(c) { c.diasRestantes = -Math.floor(Math.random() * 20 + 5); return c; });
+        var vencidos = MOCK_COMPUTADORES.filter(function(c) { return c.status !== 'ATIVO' && c.status !== 'CONCLUIDO'; }).map(function(c) { return Object.assign({}, c, { diasRestantes: -Math.floor(Math.random() * 20 + 5) }); });
         return vencidos;
     }
     if (url.indexOf('/api/computadores/alertas') !== -1) return { garantiaVencida: [], garantiaProxima: [], totalAlertas: 0 };
@@ -218,8 +218,13 @@ function mockFetch(url, opts) {
             var swPs = new URLSearchParams(url.split('?')[1] || '');
             var swPage = parseInt(swPs.get('page')) || 0;
             var swSize = parseInt(swPs.get('size')) || 10;
-            var swContent = MOCK_SOFTWARE.slice(swPage * swSize, (swPage + 1) * swSize);
-            return { content: swContent, page: swPage, size: swSize, totalElements: MOCK_SOFTWARE.length, totalPages: Math.ceil(MOCK_SOFTWARE.length / swSize) };
+            var swTermo = (swPs.get('termo') || '').toLowerCase();
+            var swFiltered = MOCK_SOFTWARE;
+            if (swTermo) {
+                swFiltered = MOCK_SOFTWARE.filter(function(s) { return (s.nomeSoftware || '').toLowerCase().indexOf(swTermo) !== -1 || (s.fabricante || '').toLowerCase().indexOf(swTermo) !== -1 || (s.chaveLicenca || '').toLowerCase().indexOf(swTermo) !== -1; });
+            }
+            var swContent = swFiltered.slice(swPage * swSize, (swPage + 1) * swSize);
+            return { content: swContent, page: swPage, size: swSize, totalElements: swFiltered.length, totalPages: Math.ceil(swFiltered.length / swSize) };
         }
         if (url.indexOf('/api/software-licencas/') !== -1 && method === 'GET') {
             var swId = parseInt(url.split('/api/software-licencas/')[1].split('?')[0]);
