@@ -1048,6 +1048,8 @@ select.form-input option { background: var(--bg-surface); }
 .ciclo-info { display: flex; justify-content: space-between; align-items: center; font-size: 10px; }
 .ciclo-fase { font-weight: 600; }
 .ciclo-dias { color: var(--text-muted); }
+.pc-card-atrasado { border-color: rgba(239, 68, 68, 0.4) !important; box-shadow: 0 0 12px rgba(239, 68, 68, 0.12); }
+.pc-card-atrasado:hover { box-shadow: 0 0 20px rgba(239, 68, 68, 0.22); }
 .pc-card-spec {
     padding: 2px 7px;
     background: rgba(255, 255, 255, 0.03);

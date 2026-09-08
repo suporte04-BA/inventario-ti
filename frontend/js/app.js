@@ -114,16 +114,16 @@ var MOCK_SOFTWARE = [
 ];
 
 var MOCK_RAMAIS = [
-    { id: 1, numeroRamal: '1001', setor: 'TI', descricao: 'Ramal sala TI - 1o andar', computadorId: 1, status: 'ATIVO', fotoUrl: '', dataCadastro: '2024-01-15T10:00:00' },
-    { id: 2, numeroRamal: '1002', setor: 'TI', descricao: 'Ramal sala TI - 2o andar', computadorId: 5, status: 'ATIVO', fotoUrl: '', dataCadastro: '2024-01-15T10:00:00' },
-    { id: 3, numeroRamal: '2001', setor: 'Financeiro', descricao: 'Ramal Financeiro - Sala 201', computadorId: 6, status: 'ATIVO', fotoUrl: '', dataCadastro: '2024-02-10T10:00:00' },
-    { id: 4, numeroRamal: '2002', setor: 'Financeiro', descricao: 'Ramal Financeiro - Sala 202', computadorId: 7, status: 'EM_MANUTENCAO', fotoUrl: '', dataCadastro: '2024-02-10T10:00:00' },
-    { id: 5, numeroRamal: '3001', setor: 'RH', descricao: 'Ramal RH - Sala 301', computadorId: 8, status: 'ATIVO', fotoUrl: '', dataCadastro: '2024-03-01T10:00:00' },
-    { id: 6, numeroRamal: '3002', setor: 'RH', descricao: 'Ramal RH - Sala 302', computadorId: null, status: 'INATIVO', fotoUrl: '', dataCadastro: '2024-03-01T10:00:00' },
-    { id: 7, numeroRamal: '4001', setor: 'Operacoes', descricao: 'Ramal Operacoes - Galpao', computadorId: 3, status: 'ATIVO', fotoUrl: '', dataCadastro: '2024-04-01T10:00:00' },
-    { id: 8, numeroRamal: '4002', setor: 'Operacoes', descricao: 'Ramal Operacoes - Estoque', computadorId: 15, status: 'ATIVO', fotoUrl: '', dataCadastro: '2024-04-01T10:00:00' },
-    { id: 9, numeroRamal: '5001', setor: 'Marketing', descricao: 'Ramal Marketing - Sala 501', computadorId: null, status: 'ATIVO', fotoUrl: '', dataCadastro: '2024-05-01T10:00:00' },
-    { id: 10, numeroRamal: '5002', setor: 'Marketing', descricao: 'Ramal Marketing - Sala 502', computadorId: null, status: 'INATIVO', fotoUrl: '', dataCadastro: '2024-05-01T10:00:00' }
+    { id: 1, numeroRamal: '1001', setor: 'TI', descricao: 'Ramal sala TI - 1o andar', computadorId: 1, status: 'ATIVO', fotoUrl: '', dataCadastro: '2024-01-15T10:00:00', dataInicioCiclo: _dyn(_curYear, _curMonth - 2, 1), proximaManutencao: _dyn(_curYear, _curMonth + 10, 1), dataUltimaManutencao: _dyn(_curYear, _curMonth - 2, 1) },
+    { id: 2, numeroRamal: '1002', setor: 'TI', descricao: 'Ramal sala TI - 2o andar', computadorId: 5, status: 'EM_MANUTENCAO', fotoUrl: '', dataCadastro: '2024-01-15T10:00:00', dataInicioCiclo: _dyn(_curYear, _curMonth - 10, 1), proximaManutencao: _dyn(_curYear, _curMonth + 2, 1), dataUltimaManutencao: _dyn(_curYear, _curMonth - 2, 10) },
+    { id: 3, numeroRamal: '2001', setor: 'Financeiro', descricao: 'Ramal Financeiro - Sala 201', computadorId: 6, status: 'ATIVO', fotoUrl: '', dataCadastro: '2024-02-10T10:00:00', dataInicioCiclo: _dyn(_curYear, _curMonth - 5, 1), proximaManutencao: _dyn(_curYear, _curMonth + 7, 1), dataUltimaManutencao: _dyn(_curYear, _curMonth - 5, 1) },
+    { id: 4, numeroRamal: '2002', setor: 'Financeiro', descricao: 'Ramal Financeiro - Sala 202', computadorId: 7, status: 'CONFERIR', fotoUrl: '', dataCadastro: '2024-02-10T10:00:00', dataInicioCiclo: _dyn(_curYear, _curMonth - 14, 1), proximaManutencao: _dyn(_curYear, _curMonth - 2, 1), dataUltimaManutencao: _dyn(_curYear, _curMonth - 4, 5) },
+    { id: 5, numeroRamal: '3001', setor: 'RH', descricao: 'Ramal RH - Sala 301', computadorId: 8, status: 'ATIVO', fotoUrl: '', dataCadastro: '2024-03-01T10:00:00', dataInicioCiclo: _dyn(_curYear, _curMonth - 1, 1), proximaManutencao: _dyn(_curYear, _curMonth + 11, 1), dataUltimaManutencao: _dyn(_curYear, _curMonth - 1, 1) },
+    { id: 6, numeroRamal: '3002', setor: 'RH', descricao: 'Ramal RH - Sala 302', computadorId: null, status: 'INATIVO', fotoUrl: '', dataCadastro: '2024-03-01T10:00:00', dataInicioCiclo: _dyn(_curYear, _curMonth - 16, 1), proximaManutencao: _dyn(_curYear, _curMonth - 4, 1), dataUltimaManutencao: _dyn(_curYear, _curMonth - 6, 15) },
+    { id: 7, numeroRamal: '4001', setor: 'Operacoes', descricao: 'Ramal Operacoes - Galpao', computadorId: 3, status: 'EM_MANUTENCAO', fotoUrl: '', dataCadastro: '2024-04-01T10:00:00', dataInicioCiclo: _dyn(_curYear, _curMonth - 7, 1), proximaManutencao: _dyn(_curYear, _curMonth + 5, 1), dataUltimaManutencao: _dyn(_curYear, _curMonth - 1, 20) },
+    { id: 8, numeroRamal: '4002', setor: 'Operacoes', descricao: 'Ramal Operacoes - Estoque', computadorId: 15, status: 'ATIVO', fotoUrl: '', dataCadastro: '2024-04-01T10:00:00', dataInicioCiclo: _dyn(_curYear, _curMonth - 3, 1), proximaManutencao: _dyn(_curYear, _curMonth + 9, 1), dataUltimaManutencao: _dyn(_curYear, _curMonth - 3, 1) },
+    { id: 9, numeroRamal: '5001', setor: 'Marketing', descricao: 'Ramal Marketing - Sala 501', computadorId: null, status: 'CONFERIR', fotoUrl: '', dataCadastro: '2024-05-01T10:00:00', dataInicioCiclo: _dyn(_curYear, _curMonth - 11, 1), proximaManutencao: _dyn(_curYear, _curMonth + 1, 1), dataUltimaManutencao: _dyn(_curYear, _curMonth - 1, 10) },
+    { id: 10, numeroRamal: '5002', setor: 'Marketing', descricao: 'Ramal Marketing - Sala 502', computadorId: null, status: 'INATIVO', fotoUrl: '', dataCadastro: '2024-05-01T10:00:00', dataInicioCiclo: _dyn(_curYear, _curMonth - 18, 1), proximaManutencao: _dyn(_curYear, _curMonth - 6, 1), dataUltimaManutencao: _dyn(_curYear, _curMonth - 8, 5) }
 ];
 
 var MOCK_TROCAS = [
@@ -171,6 +171,24 @@ function computeCycle(eq) {
     eq.diasRestantes = diasRestantes;
     eq.faseCiclo = fase;
     return eq;
+}
+
+function computeRamalCycle(r) {
+    if (!r.dataInicioCiclo) return r;
+    var inicio = new Date(r.dataInicioCiclo);
+    var now = new Date();
+    var diffMs = now - inicio;
+    var diasDesdeInicio = Math.floor(diffMs / (1000 * 60 * 60 * 24));
+    var diasTotal = 365;
+    var diasRestantes = diasTotal - diasDesdeInicio;
+    var fase = 'ATIVO';
+    if (diasDesdeInicio > 183 && diasDesdeInicio <= 274) fase = 'PREDITIVO';
+    else if (diasDesdeInicio > 274 && diasDesdeInicio <= 365) fase = 'PREVENTIVO';
+    else if (diasDesdeInicio > 365) fase = 'ATRASADO';
+    r.diasDesdeInicioCiclo = diasDesdeInicio;
+    r.diasRestantes = diasRestantes;
+    r.faseCiclo = fase;
+    return r;
 }
 
 function syncManutencaoWithComputador(computadorId, manutStatus, manutTipo) {
@@ -335,6 +353,11 @@ function mockFetch(url, opts) {
             if (termo && (c.nomePc.toLowerCase().indexOf(termo) === -1 && c.modeloMarca.toLowerCase().indexOf(termo) === -1 && c.usuarioDesignado.toLowerCase().indexOf(termo) === -1 && c.numeroSerie.toLowerCase().indexOf(termo) === -1)) return false;
             return true;
         }).map(function(c) { return computeCycle(Object.assign({}, c)); });
+        filtered.sort(function(a, b) {
+            var da = a.diasRestantes !== undefined ? a.diasRestantes : 9999;
+            var db = b.diasRestantes !== undefined ? b.diasRestantes : 9999;
+            return da - db;
+        });
         var start = page * size;
         return { content: filtered.slice(start, start + size), totalElements: filtered.length, totalPages: Math.ceil(filtered.length / size), number: page, size: size };
     }
@@ -489,11 +512,39 @@ function mockFetch(url, opts) {
             var rTermo = (rp.get('termo') || '').toLowerCase();
             var rStatus = rp.get('status') || '';
             var rSetor = rp.get('setor') || '';
+            var rPeriodo = rp.get('periodo') || '';
+            var rPrioridade = rp.get('prioridade') || '';
             var rFiltered = MOCK_RAMAIS.filter(function(r) {
                 if (rStatus && r.status !== rStatus) return false;
                 if (rSetor && r.setor !== rSetor) return false;
                 if (rTermo && (r.numeroRamal.indexOf(rTermo) === -1 && r.setor.toLowerCase().indexOf(rTermo) === -1 && (r.descricao || '').toLowerCase().indexOf(rTermo) === -1)) return false;
                 return true;
+            }).map(function(r) { return computeRamalCycle(Object.assign({}, r)); });
+            if (rPeriodo) {
+                var now = new Date();
+                rFiltered = rFiltered.filter(function(r) {
+                    if (!r.diasRestantes && r.diasRestantes !== 0) return true;
+                    if (rPeriodo === 'atrasado') return r.diasRestantes < 0;
+                    if (rPeriodo === '30d') return r.diasRestantes >= 0 && r.diasRestantes <= 30;
+                    if (rPeriodo === '90d') return r.diasRestantes > 30 && r.diasRestantes <= 90;
+                    if (rPeriodo === '180d') return r.diasRestantes > 90 && r.diasRestantes <= 180;
+                    if (rPeriodo === '365d') return r.diasRestantes > 180;
+                    return true;
+                });
+            }
+            if (rPrioridade) {
+                rFiltered = rFiltered.filter(function(r) {
+                    if (rPrioridade === 'ATRASADO') return r.faseCiclo === 'ATRASADO';
+                    if (rPrioridade === 'PREVENTIVO') return r.faseCiclo === 'PREVENTIVO';
+                    if (rPrioridade === 'PREDITIVO') return r.faseCiclo === 'PREDITIVO';
+                    if (rPrioridade === 'ATIVO') return r.faseCiclo === 'ATIVO';
+                    return true;
+                });
+            }
+            rFiltered.sort(function(a, b) {
+                var da = a.diasRestantes !== undefined ? a.diasRestantes : 9999;
+                var db = b.diasRestantes !== undefined ? b.diasRestantes : 9999;
+                return da - db;
             });
             return rFiltered;
         }
@@ -503,19 +554,35 @@ function mockFetch(url, opts) {
             if (found) {
                 var comp = MOCK_COMPUTADORES.find(function(c) { return c.id === found.computadorId; });
                 found.computadorNome = comp ? comp.nomePc : null;
+                computeRamalCycle(found);
             }
             return found;
         }
         if (method === 'POST') {
             body.id = MOCK_RAMAIS.length > 0 ? Math.max.apply(null, MOCK_RAMAIS.map(function(r) { return r.id; })) + 1 : 1;
             body.dataCadastro = new Date().toISOString();
+            if (!body.dataInicioCiclo) body.dataInicioCiclo = new Date().toISOString();
             MOCK_RAMAIS.push(body);
             return body;
         }
         if (url.indexOf('/api/ramais/') !== -1 && method === 'PUT') {
             var ruId = parseInt(url.split('/api/ramais/')[1]);
             var ri = MOCK_RAMAIS.findIndex(function(r) { return r.id === ruId; });
-            if (ri !== -1) { Object.assign(MOCK_RAMAIS[ri], body); return MOCK_RAMAIS[ri]; }
+            if (ri !== -1) {
+                var oldStatus = MOCK_RAMAIS[ri].status;
+                Object.assign(MOCK_RAMAIS[ri], body);
+                if (body.status === 'EM_MANUTENCAO' && oldStatus !== 'EM_MANUTENCAO') {
+                    var manutId = MOCK_MANUTENCOES.length > 0 ? Math.max.apply(null, MOCK_MANUTENCOES.map(function(m) { return m.id; })) + 1 : 1;
+                    MOCK_MANUTENCOES.push({ id: manutId, computadorId: MOCK_RAMAIS[ri].computadorId, computadorNome: 'Ramal ' + MOCK_RAMAIS[ri].numeroRamal, tipo: 'CORRETIVA', status: 'PENDENTE', descricao: 'Manutencao do ramal ' + MOCK_RAMAIS[ri].numeroRamal + ' - ' + (MOCK_RAMAIS[ri].descricao || ''), tecnicoResponsavel: '', pecasTrocadas: '', observacoes: 'Aberto automaticamente ao colocar ramal em manutencao', fotoUrl: '', dataCadastro: new Date().toISOString(), dataConclusao: null });
+                    var osId = MOCK_ORDENS.length > 0 ? Math.max.apply(null, MOCK_ORDENS.map(function(o) { return o.id; })) + 1 : 1;
+                    MOCK_ORDENS.push({ id: osId, titulo: 'OS - Ramal ' + MOCK_RAMAIS[ri].numeroRamal, descricao: 'Ordem aberta para manutencao do ramal ' + MOCK_RAMAIS[ri].numeroRamal, computadorId: MOCK_RAMAIS[ri].computadorId, computadorNome: 'Ramal ' + MOCK_RAMAIS[ri].numeroRamal, prioridade: 'MEDIA', status: 'ABERTA', solicitante: 'Sistema', tecnicoResponsavel: '', dataAbertura: new Date().toISOString(), dataPrevisao: '', dataConclusao: '', solucao: '' });
+                }
+                if (body.status === 'ATIVO' && oldStatus === 'EM_MANUTENCAO') {
+                    MOCK_MANUTENCOES.forEach(function(m) { if (m.computadorNome === 'Ramal ' + MOCK_RAMAIS[ri].numeroRamal && m.status !== 'CONCLUIDA' && m.status !== 'CANCELADA') { m.status = 'CONCLUIDA'; m.dataConclusao = new Date().toISOString(); } });
+                    MOCK_ORDENS.forEach(function(o) { if (o.computadorNome === 'Ramal ' + MOCK_RAMAIS[ri].numeroRamal && o.status !== 'CONCLUIDA' && o.status !== 'CANCELADA') { o.status = 'CONCLUIDA'; o.dataConclusao = new Date().toISOString(); } });
+                }
+                return MOCK_RAMAIS[ri];
+            }
             return null;
         }
         if (url.indexOf('/api/ramais/') !== -1 && method === 'DELETE') {
@@ -1111,7 +1178,7 @@ function renderComputadoresCards(data) {
             var faseLabel = { 'ATIVO': 'Ativo', 'PREDITIVO': 'Preditivo', 'PREVENTIVO': 'Preventivo', 'ATRASADO': 'Atrasado' };
             cicloHtml = '<div class="pc-card-ciclo"><div class="ciclo-bar"><div class="ciclo-fill" style="width:' + pct + '%;background:' + corCiclo + ';"></div></div><div class="ciclo-info"><span class="ciclo-fase" style="color:' + corCiclo + ';">' + (faseLabel[eq.faseCiclo] || eq.faseCiclo) + '</span><span class="ciclo-dias">' + cicloTexto + '</span></div></div>';
         }
-        return '<div class="pc-card' + (isSelected ? ' selected' : '') + '" onclick="showComputadorDetail(' + eq.id + ')">' + checkHtml + '<div class="pc-card-foto">' + getComputerPhoto(eq, { w: 320, h: 220 }) + '<div class="pc-card-status-bar"><span class="badge ' + s.c + '"><i class="fas ' + s.i + '" style="font-size:9px;"></i> ' + sl + '</span></div></div><div class="pc-card-body"><div class="pc-card-name">' + escapeHtml(eq.nomePc) + '</div><div class="pc-card-model">' + escapeHtml(eq.modeloMarca) + '</div><div class="pc-card-specs"><span class="pc-card-spec">' + escapeHtml(eq.processador) + '</span><span class="pc-card-spec">' + escapeHtml(eq.memoriaRam) + '</span><span class="pc-card-spec">' + escapeHtml(eq.armazenamento) + '</span></div>' + cicloHtml + '<div class="pc-card-footer"><span class="pc-card-user"><i class="fas fa-user"></i> ' + escapeHtml(eq.usuarioDesignado || 'Sem usuario') + '</span><div class="pc-card-actions" onclick="event.stopPropagation()"><button onclick="event.stopPropagation();showComputadorForm(' + eq.id + ')" class="action-btn action-btn-edit" title="Editar"><i class="fas fa-pen"></i></button>' + admin + '</div></div></div></div>';
+        return '<div class="pc-card' + (isSelected ? ' selected' : '') + (eq.faseCiclo === 'ATRASADO' ? ' pc-card-atrasado' : '') + '" onclick="showComputadorDetail(' + eq.id + ')">' + checkHtml + '<div class="pc-card-foto">' + getComputerPhoto(eq, { w: 320, h: 220 }) + '<div class="pc-card-status-bar"><span class="badge ' + s.c + '"><i class="fas ' + s.i + '" style="font-size:9px;"></i> ' + sl + '</span></div></div><div class="pc-card-body"><div class="pc-card-name">' + escapeHtml(eq.nomePc) + '</div><div class="pc-card-model">' + escapeHtml(eq.modeloMarca) + '</div><div class="pc-card-specs"><span class="pc-card-spec">' + escapeHtml(eq.processador) + '</span><span class="pc-card-spec">' + escapeHtml(eq.memoriaRam) + '</span><span class="pc-card-spec">' + escapeHtml(eq.armazenamento) + '</span></div>' + cicloHtml + '<div class="pc-card-footer"><span class="pc-card-user"><i class="fas fa-user"></i> ' + escapeHtml(eq.usuarioDesignado || 'Sem usuario') + '</span><div class="pc-card-actions" onclick="event.stopPropagation()"><button onclick="event.stopPropagation();showComputadorForm(' + eq.id + ')" class="action-btn action-btn-edit" title="Editar"><i class="fas fa-pen"></i></button>' + admin + '</div></div></div></div>';
     }).join('');
     renderPagination('cards-pagination', data.totalPages, data.page !== undefined ? data.page : data.number, loadComputadores);
 }
@@ -2725,6 +2792,8 @@ function initFilters() {
     var rb = document.getElementById('ramal-busca-input'); if (rb) rb.addEventListener('input', debounce(function() { loadRamais(0); }, 400));
     var rs = document.getElementById('ramal-filtro-status'); if (rs) rs.addEventListener('change', function() { loadRamais(0); });
     var rset = document.getElementById('ramal-filtro-setor'); if (rset) rset.addEventListener('change', function() { loadRamais(0); });
+    var rper = document.getElementById('ramal-filtro-periodo'); if (rper) rper.addEventListener('change', function() { loadRamais(0); });
+    var rpri = document.getElementById('ramal-filtro-prioridade'); if (rpri) rpri.addEventListener('change', function() { loadRamais(0); });
     var tb2 = document.getElementById('troca-busca-input'); if (tb2) tb2.addEventListener('input', debounce(function() { loadTrocas(); }, 400));
     var tt = document.getElementById('troca-filtro-tipo'); if (tt) tt.addEventListener('change', function() { loadTrocas(); });
 }
@@ -2823,10 +2892,14 @@ async function loadRamais(page) {
     var termo = (document.getElementById('ramal-busca-input') || {}).value || '';
     var status = (document.getElementById('ramal-filtro-status') || {}).value || '';
     var setor = (document.getElementById('ramal-filtro-setor') || {}).value || '';
+    var periodo = (document.getElementById('ramal-filtro-periodo') || {}).value || '';
+    var prioridade = (document.getElementById('ramal-filtro-prioridade') || {}).value || '';
     try {
         var url = '/api/ramais?termo=' + encodeURIComponent(termo);
         if (status) url += '&status=' + status;
         if (setor) url += '&setor=' + encodeURIComponent(setor);
+        if (periodo) url += '&periodo=' + periodo;
+        if (prioridade) url += '&prioridade=' + prioridade;
         var d = await apiFetch(url);
         renderRamais(d);
         var navTotal = document.getElementById('nav-ramais-total');
@@ -2845,12 +2918,20 @@ function renderRamais(ramais) {
         var cp = document.getElementById('ramal-pagination'); if (cp) cp.innerHTML = '';
         return;
     }
-    var sm = { 'ATIVO': { c: 'badge-ativo', i: 'fa-check-circle', label: 'Ativo' }, 'INATIVO': { c: 'badge-cancelada', i: 'fa-times-circle', label: 'Inativo' }, 'EM_MANUTENCAO': { c: 'badge-emergencial', i: 'fa-wrench', label: 'Em Manutencao' } };
+    var sm = { 'ATIVO': { c: 'badge-ativo', i: 'fa-check-circle', label: 'Ativo' }, 'INATIVO': { c: 'badge-cancelada', i: 'fa-times-circle', label: 'Inativo' }, 'EM_MANUTENCAO': { c: 'badge-emergencial', i: 'fa-wrench', label: 'Em Manutencao' }, 'CONFERIR': { c: 'badge-preditiva', i: 'fa-search', label: 'Conferir' } };
     grid.innerHTML = ramais.map(function(r) {
         var s = sm[r.status] || { c: 'badge-inativo', i: 'fa-circle', label: r.status };
         var comp = MOCK_COMPUTADORES.find(function(c) { return c.id === r.computadorId; });
         var compName = comp ? comp.nomePc : 'Sem PC vinculado';
         var admin = getPerfil() === 'ADMIN' ? '<button onclick="event.stopPropagation();confirmDelete(\'ramal\',' + r.id + ',\'Ramal ' + escapeJsStr(r.numeroRamal) + '\')" class="action-btn action-btn-delete" title="Excluir"><i class="fas fa-trash"></i></button>' : '';
+        var cicloHtml = '';
+        if (r.diasDesdeInicioCiclo !== null && r.diasDesdeInicioCiclo !== undefined) {
+            var pct = Math.min(100, Math.max(0, (r.diasDesdeInicioCiclo / 365) * 100));
+            var corCiclo = pct < 50 ? 'var(--green)' : pct < 75 ? 'var(--yellow)' : 'var(--red)';
+            var cicloTexto = r.diasRestantes > 0 ? r.diasRestantes + 'd restantes' : r.diasRestantes === 0 ? 'Vence hoje' : Math.abs(r.diasRestantes) + 'd atrasado';
+            var faseLabel = { 'ATIVO': 'Ativo', 'PREDITIVO': 'Preditivo', 'PREVENTIVO': 'Preventivo', 'ATRASADO': 'Atrasado' };
+            cicloHtml = '<div class="pc-card-ciclo"><div class="ciclo-bar"><div class="ciclo-fill" style="width:' + pct + '%;background:' + corCiclo + ';"></div></div><div class="ciclo-info"><span class="ciclo-fase" style="color:' + corCiclo + ';">' + (faseLabel[r.faseCiclo] || r.faseCiclo) + '</span><span class="ciclo-dias">' + cicloTexto + '</span></div></div>';
+        }
         var fotoArea = r.fotoUrl && r.fotoUrl.trim() ?
             '<div class="pc-card-foto" style="cursor:zoom-in;" onclick="event.stopPropagation();openLightbox(\'' + escapeJsStr(r.fotoUrl) + '\')"><img src="' + escapeHtml(r.fotoUrl) + '" alt="' + escapeHtml(r.numeroRamal) + '" style="width:100%;height:100%;object-fit:contain;" onload="this.style.display=\'block\';var fb=this.nextElementSibling;if(fb)fb.style.display=\'none\';" onerror="this.style.display=\'none\';var fb=this.nextElementSibling;if(fb)fb.style.display=\'flex\';"><div class="pc-photo-fallback" style="display:flex;width:100%;height:100%;align-items:center;justify-content:center;flex-direction:column;gap:8px;background:linear-gradient(135deg, rgba(0,229,199,0.08), rgba(0,229,199,0.02));"><i class="fas fa-phone-alt" style="font-size:42px;color:var(--cyan);opacity:0.7;"></i><span style="font-size:24px;font-weight:800;color:var(--cyan);font-family:\'JetBrains Mono\',monospace;">' + escapeHtml(r.numeroRamal) + '</span></div><div class="pc-card-status-bar"><span class="badge ' + s.c + '"><i class="fas ' + s.i + '" style="font-size:9px;"></i> ' + s.label + '</span></div></div>'
             : '<div class="pc-card-foto" style="background:linear-gradient(135deg, rgba(0,229,199,0.08), rgba(0,229,199,0.02));display:flex;align-items:center;justify-content:center;flex-direction:column;gap:8px;">' +
@@ -2858,7 +2939,7 @@ function renderRamais(ramais) {
                 '<span style="font-size:24px;font-weight:800;color:var(--cyan);font-family:\'JetBrains Mono\',monospace;">' + escapeHtml(r.numeroRamal) + '</span>' +
                 '<div class="pc-card-status-bar"><span class="badge ' + s.c + '"><i class="fas ' + s.i + '" style="font-size:9px;"></i> ' + s.label + '</span></div>' +
             '</div>';
-        return '<div class="pc-card" onclick="showRamalDetail(' + r.id + ')">' +
+        return '<div class="pc-card' + (r.faseCiclo === 'ATRASADO' ? ' pc-card-atrasado' : '') + '" onclick="showRamalDetail(' + r.id + ')">' +
             fotoArea +
             '<div class="pc-card-body">' +
                 '<div class="pc-card-name">' + escapeHtml(r.setor) + '</div>' +
@@ -2866,6 +2947,7 @@ function renderRamais(ramais) {
                 '<div class="pc-card-specs">' +
                     '<span class="pc-card-spec"><i class="fas fa-desktop" style="margin-right:4px;font-size:10px;"></i>' + escapeHtml(compName) + '</span>' +
                 '</div>' +
+                cicloHtml +
                 '<div class="pc-card-footer">' +
                     '<span class="pc-card-user"><i class="fas fa-calendar"></i> ' + (r.dataCadastro ? new Date(r.dataCadastro).toLocaleDateString('pt-BR') : '-') + '</span>' +
                     '<div class="pc-card-actions" onclick="event.stopPropagation()">' +
@@ -2883,7 +2965,7 @@ async function showRamalDetail(id) {
         var r = await apiFetch('/api/ramais/' + id);
         r.fotoUrl = r.fotoUrl || '';
         var comp = MOCK_COMPUTADORES.find(function(c) { return c.id === r.computadorId; });
-        var sm = { 'ATIVO': { c: 'badge-ativo', label: 'Ativo' }, 'INATIVO': { c: 'badge-cancelada', label: 'Inativo' }, 'EM_MANUTENCAO': { c: 'badge-emergencial', label: 'Em Manutencao' } };
+        var sm = { 'ATIVO': { c: 'badge-ativo', label: 'Ativo' }, 'INATIVO': { c: 'badge-cancelada', label: 'Inativo' }, 'EM_MANUTENCAO': { c: 'badge-emergencial', label: 'Em Manutencao' }, 'CONFERIR': { c: 'badge-preditiva', label: 'Conferir' } };
         var s = sm[r.status] || { c: 'badge-inativo', label: r.status };
         var compHtml = comp ?
             '<div style="padding:12px;background:rgba(0,229,199,0.05);border:1px solid rgba(0,229,199,0.1);border-radius:8px;margin-top:12px;cursor:pointer;" onclick="closeModal();showComputadorDetail(' + comp.id + ')">' +
@@ -2923,6 +3005,7 @@ async function showRamalDetail(id) {
                 '<div><label style="font-size:10px;color:var(--text-muted);text-transform:uppercase;letter-spacing:0.5px;">Data Cadastro</label><p style="font-size:13px;color:var(--text-primary);font-weight:500;margin-top:2px;">' + (r.dataCadastro ? new Date(r.dataCadastro).toLocaleDateString('pt-BR') : '-') + '</p></div>' +
             '</div>' +
             '<div style="margin-top:16px;"><label style="font-size:10px;color:var(--text-muted);text-transform:uppercase;letter-spacing:0.5px;">Computador Vinculado</label>' + compHtml + '</div>' +
+            (r.diasDesdeInicioCiclo !== null && r.diasDesdeInicioCiclo !== undefined ? '<div style="margin-top:16px;"><label style="font-size:10px;color:var(--text-muted);text-transform:uppercase;letter-spacing:0.5px;">Ciclo de Vida Util (12 meses)</label><div style="margin-top:4px;"><div style="height:8px;background:rgba(255,255,255,0.05);border-radius:4px;overflow:hidden;"><div style="height:100%;width:' + Math.min(100, Math.max(0, (r.diasDesdeInicioCiclo / 365) * 100)) + '%;background:' + (Math.min(100, Math.max(0, (r.diasDesdeInicioCiclo / 365) * 100)) < 50 ? 'var(--green)' : Math.min(100, Math.max(0, (r.diasDesdeInicioCiclo / 365) * 100)) < 75 ? 'var(--yellow)' : 'var(--red)') + ';border-radius:4px;transition:width 0.3s;"></div></div><div style="display:flex;justify-content:space-between;margin-top:6px;font-size:11px;"><span style="color:' + (Math.min(100, Math.max(0, (r.diasDesdeInicioCiclo / 365) * 100)) < 50 ? 'var(--green)' : Math.min(100, Math.max(0, (r.diasDesdeInicioCiclo / 365) * 100)) < 75 ? 'var(--yellow)' : 'var(--red)') + ';font-weight:600;">' + ({ 'ATIVO': 'Ativo (0-6m)', 'PREDITIVO': 'Preditivo (6-9m)', 'PREVENTIVO': 'Preventivo (9-12m)', 'ATRASADO': 'Atrasado (12m+)' }[r.faseCiclo] || r.faseCiclo) + '</span><span style="color:var(--text-muted);">' + r.diasDesdeInicioCiclo + ' dias / 365 dias</span></div><div style="font-size:11px;color:' + (r.diasRestantes > 0 ? 'var(--text-muted)' : 'var(--red)') + ';margin-top:2px;">' + (r.diasRestantes > 0 ? r.diasRestantes + ' dias restantes' : r.diasRestantes === 0 ? 'Vence hoje' : 'Atrasado ha ' + Math.abs(r.diasRestantes) + ' dias') + '</div></div></div>' : '') +
             trocasHtml +
             '</div>',
             '<button onclick="closeModal()" class="btn btn-ghost btn-sm">Fechar</button><button onclick="showRamalForm(' + r.id + ')" class="btn btn-primary btn-sm"><i class="fas fa-pen"></i> Editar</button>'
@@ -2962,6 +3045,7 @@ async function showRamalForm(id) {
             '<option value="ATIVO"' + (r.status === 'ATIVO' ? ' selected' : '') + '>Ativo</option>' +
             '<option value="INATIVO"' + (r.status === 'INATIVO' ? ' selected' : '') + '>Inativo</option>' +
             '<option value="EM_MANUTENCAO"' + (r.status === 'EM_MANUTENCAO' ? ' selected' : '') + '>Em Manutencao</option>' +
+            '<option value="CONFERIR"' + (r.status === 'CONFERIR' ? ' selected' : '') + '>Conferir</option>' +
         '</select></div>' +
         '</div></div>' +
         '<div id="tabramalfoto" class="form-tab-content" style="display:none;">' +
@@ -2997,7 +3081,7 @@ async function showRamalForm(id) {
                 await apiFetch('/api/ramais', { method: 'POST', body: JSON.stringify(p) });
                 showToast('Ramal cadastrado!');
             }
-            closeModal(); loadRamais(currentPage.ramais); refreshAllData();
+            closeModal(); loadRamais(currentPage.ramais);
         } catch (e) { showToast(e.message, 'error'); }
     });
 }
