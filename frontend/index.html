@@ -649,36 +649,6 @@
                     <i class="fas fa-search"></i>
                     <input type="text" id="ramal-busca-input" placeholder="Buscar por numero, setor..." class="search-input">
                 </div>
-                <select id="ramal-filtro-status" class="form-input" style="width:auto;min-width:160px;">
-                    <option value="">Todos os Status</option>
-                    <option value="ATIVO">Ativo</option>
-                    <option value="EM_MANUTENCAO">Em Manutencao</option>
-                    <option value="INATIVO">Inativo</option>
-                    <option value="CONFERIR">Conferir</option>
-                </select>
-                <select id="ramal-filtro-setor" class="form-input" style="width:auto;min-width:160px;">
-                    <option value="">Todos os Setores</option>
-                    <option value="TI">TI</option>
-                    <option value="Financeiro">Financeiro</option>
-                    <option value="RH">RH</option>
-                    <option value="Operacoes">Operacoes</option>
-                    <option value="Marketing">Marketing</option>
-                </select>
-                <select id="ramal-filtro-periodo" class="form-input" style="width:auto;min-width:160px;">
-                    <option value="">Todos os Periodos</option>
-                    <option value="atrasado">Atrasado</option>
-                    <option value="30d">Ate 30 dias</option>
-                    <option value="90d">Ate 90 dias</option>
-                    <option value="180d">Ate 180 dias</option>
-                    <option value="365d">Acima de 180 dias</option>
-                </select>
-                <select id="ramal-filtro-prioridade" class="form-input" style="width:auto;min-width:160px;">
-                    <option value="">Todas Prioridades</option>
-                    <option value="ATRASADO">Atrasado</option>
-                    <option value="PREVENTIVO">Preventivo</option>
-                    <option value="PREDITIVO">Preditivo</option>
-                    <option value="ATIVO">Ativo</option>
-                </select>
                 <div class="toolbar-actions">
                     <button onclick="generateRelatorioRamaisPDF()" class="btn btn-ghost btn-sm" title="Exportar PDF">
                         <i class="fas fa-file-pdf"></i> PDF
@@ -687,6 +657,38 @@
                         <i class="fas fa-plus"></i> Novo Ramal
                     </button>
                 </div>
+            </div>
+            <div class="toolbar-filters" style="margin-bottom:16px;">
+                <select id="ramal-filtro-status" class="form-input" style="width:auto;min-width:140px;font-size:11px;">
+                    <option value="">Todos os Status</option>
+                    <option value="ATIVO">Ativo</option>
+                    <option value="EM_MANUTENCAO">Em Manutencao</option>
+                    <option value="INATIVO">Inativo</option>
+                    <option value="CONFERIR">Conferir</option>
+                </select>
+                <select id="ramal-filtro-setor" class="form-input" style="width:auto;min-width:140px;font-size:11px;">
+                    <option value="">Todos os Setores</option>
+                    <option value="TI">TI</option>
+                    <option value="Financeiro">Financeiro</option>
+                    <option value="RH">RH</option>
+                    <option value="Operacoes">Operacoes</option>
+                    <option value="Marketing">Marketing</option>
+                </select>
+                <select id="ramal-filtro-periodo" class="form-input" style="width:auto;min-width:140px;font-size:11px;">
+                    <option value="">Todos os Periodos</option>
+                    <option value="atrasado">Atrasado</option>
+                    <option value="30d">Ate 30 dias</option>
+                    <option value="90d">Ate 90 dias</option>
+                    <option value="180d">Ate 180 dias</option>
+                    <option value="365d">Acima de 180 dias</option>
+                </select>
+                <select id="ramal-filtro-prioridade" class="form-input" style="width:auto;min-width:140px;font-size:11px;">
+                    <option value="">Todas Prioridades</option>
+                    <option value="ATRASADO">Atrasado</option>
+                    <option value="PREVENTIVO">Preventivo</option>
+                    <option value="PREDITIVO">Preditivo</option>
+                    <option value="ATIVO">Ativo</option>
+                </select>
             </div>
             <div id="ramal-cards-grid" class="pc-cards-grid">
                 <div class="empty-state" style="grid-column:1/-1;"><div class="spinner"></div></div>

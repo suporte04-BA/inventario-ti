@@ -554,6 +554,7 @@ function mockFetch(url, opts) {
             if (found) {
                 var comp = MOCK_COMPUTADORES.find(function(c) { return c.id === found.computadorId; });
                 found.computadorNome = comp ? comp.nomePc : null;
+                found.computadorModelo = comp ? comp.modeloMarca : null;
                 computeRamalCycle(found);
             }
             return found;
@@ -2930,7 +2931,9 @@ function renderRamais(ramais) {
             var corCiclo = pct < 50 ? 'var(--green)' : pct < 75 ? 'var(--yellow)' : 'var(--red)';
             var cicloTexto = r.diasRestantes > 0 ? r.diasRestantes + 'd restantes' : r.diasRestantes === 0 ? 'Vence hoje' : Math.abs(r.diasRestantes) + 'd atrasado';
             var faseLabel = { 'ATIVO': 'Ativo', 'PREDITIVO': 'Preditivo', 'PREVENTIVO': 'Preventivo', 'ATRASADO': 'Atrasado' };
-            cicloHtml = '<div class="pc-card-ciclo"><div class="ciclo-bar"><div class="ciclo-fill" style="width:' + pct + '%;background:' + corCiclo + ';"></div></div><div class="ciclo-info"><span class="ciclo-fase" style="color:' + corCiclo + ';">' + (faseLabel[r.faseCiclo] || r.faseCiclo) + '</span><span class="ciclo-dias">' + cicloTexto + '</span></div></div>';
+            cicloHtml = '<div class="pc-card-ciclo">' +
+                '<div class="ciclo-bar"><div class="ciclo-fill" style="width:' + pct + '%;background:' + corCiclo + ';"></div></div>' +
+                '<div class="ciclo-info"><span class="ciclo-fase" style="color:' + corCiclo + ';">' + (faseLabel[r.faseCiclo] || r.faseCiclo) + '</span><span class="ciclo-dias">' + cicloTexto + '</span></div></div>';
         }
         var fotoArea = r.fotoUrl && r.fotoUrl.trim() ?
             '<div class="pc-card-foto" style="cursor:zoom-in;" onclick="event.stopPropagation();openLightbox(\'' + escapeJsStr(r.fotoUrl) + '\')"><img src="' + escapeHtml(r.fotoUrl) + '" alt="' + escapeHtml(r.numeroRamal) + '" style="width:100%;height:100%;object-fit:contain;" onload="this.style.display=\'block\';var fb=this.nextElementSibling;if(fb)fb.style.display=\'none\';" onerror="this.style.display=\'none\';var fb=this.nextElementSibling;if(fb)fb.style.display=\'flex\';"><div class="pc-photo-fallback" style="display:flex;width:100%;height:100%;align-items:center;justify-content:center;flex-direction:column;gap:8px;background:linear-gradient(135deg, rgba(0,229,199,0.08), rgba(0,229,199,0.02));"><i class="fas fa-phone-alt" style="font-size:42px;color:var(--cyan);opacity:0.7;"></i><span style="font-size:24px;font-weight:800;color:var(--cyan);font-family:\'JetBrains Mono\',monospace;">' + escapeHtml(r.numeroRamal) + '</span></div><div class="pc-card-status-bar"><span class="badge ' + s.c + '"><i class="fas ' + s.i + '" style="font-size:9px;"></i> ' + s.label + '</span></div></div>'
@@ -3005,7 +3008,33 @@ async function showRamalDetail(id) {
                 '<div><label style="font-size:10px;color:var(--text-muted);text-transform:uppercase;letter-spacing:0.5px;">Data Cadastro</label><p style="font-size:13px;color:var(--text-primary);font-weight:500;margin-top:2px;">' + (r.dataCadastro ? new Date(r.dataCadastro).toLocaleDateString('pt-BR') : '-') + '</p></div>' +
             '</div>' +
             '<div style="margin-top:16px;"><label style="font-size:10px;color:var(--text-muted);text-transform:uppercase;letter-spacing:0.5px;">Computador Vinculado</label>' + compHtml + '</div>' +
-            (r.diasDesdeInicioCiclo !== null && r.diasDesdeInicioCiclo !== undefined ? '<div style="margin-top:16px;"><label style="font-size:10px;color:var(--text-muted);text-transform:uppercase;letter-spacing:0.5px;">Ciclo de Vida Util (12 meses)</label><div style="margin-top:4px;"><div style="height:8px;background:rgba(255,255,255,0.05);border-radius:4px;overflow:hidden;"><div style="height:100%;width:' + Math.min(100, Math.max(0, (r.diasDesdeInicioCiclo / 365) * 100)) + '%;background:' + (Math.min(100, Math.max(0, (r.diasDesdeInicioCiclo / 365) * 100)) < 50 ? 'var(--green)' : Math.min(100, Math.max(0, (r.diasDesdeInicioCiclo / 365) * 100)) < 75 ? 'var(--yellow)' : 'var(--red)') + ';border-radius:4px;transition:width 0.3s;"></div></div><div style="display:flex;justify-content:space-between;margin-top:6px;font-size:11px;"><span style="color:' + (Math.min(100, Math.max(0, (r.diasDesdeInicioCiclo / 365) * 100)) < 50 ? 'var(--green)' : Math.min(100, Math.max(0, (r.diasDesdeInicioCiclo / 365) * 100)) < 75 ? 'var(--yellow)' : 'var(--red)') + ';font-weight:600;">' + ({ 'ATIVO': 'Ativo (0-6m)', 'PREDITIVO': 'Preditivo (6-9m)', 'PREVENTIVO': 'Preventivo (9-12m)', 'ATRASADO': 'Atrasado (12m+)' }[r.faseCiclo] || r.faseCiclo) + '</span><span style="color:var(--text-muted);">' + r.diasDesdeInicioCiclo + ' dias / 365 dias</span></div><div style="font-size:11px;color:' + (r.diasRestantes > 0 ? 'var(--text-muted)' : 'var(--red)') + ';margin-top:2px;">' + (r.diasRestantes > 0 ? r.diasRestantes + ' dias restantes' : r.diasRestantes === 0 ? 'Vence hoje' : 'Atrasado ha ' + Math.abs(r.diasRestantes) + ' dias') + '</div></div></div>' : '') +
+            (function() {
+                if (r.diasDesdeInicioCiclo === null || r.diasDesdeInicioCiclo === undefined) return '';
+                var pct = Math.min(100, Math.max(0, (r.diasDesdeInicioCiclo / 365) * 100));
+                var cor = pct < 50 ? 'var(--green)' : pct < 75 ? 'var(--yellow)' : 'var(--red)';
+                var faseLabels = { 'ATIVO': 'Ativo (0-6m)', 'PREDITIVO': 'Preditivo (6-9m)', 'PREVENTIVO': 'Preventivo (9-12m)', 'ATRASADO': 'Atrasado (12m+)' };
+                var diasTxt = r.diasRestantes > 0 ? r.diasRestantes + ' dias restantes' : r.diasRestantes === 0 ? 'Vence hoje' : 'Atrasado ha ' + Math.abs(r.diasRestantes) + ' dias';
+                var dotsHtml = '';
+                var fases = ['ATIVO', 'PREDITIVO', 'PREVENTIVO', 'ATRASADO'];
+                var fasesCor = ['var(--green)', 'var(--yellow)', 'var(--yellow)', 'var(--red)'];
+                var fasesPct = [0, 50, 75, 100];
+                for (var fi = 0; fi < fases.length; fi++) {
+                    var active = pct >= fasesPct[fi];
+                    dotsHtml += '<div style="display:flex;align-items:center;gap:4px;font-size:10px;color:' + (active ? cor : 'var(--text-muted)') + ';opacity:' + (active ? '1' : '0.4') + ';"><span style="width:6px;height:6px;border-radius:50%;background:' + (active ? cor : 'var(--text-muted)') + ';flex-shrink:0;"></span>' + fases[fi].charAt(0) + fases[fi].slice(1).toLowerCase() + '</div>';
+                }
+                return '<div style="margin-top:16px;padding:14px;background:rgba(255,255,255,0.02);border:1px solid var(--border);border-radius:10px;">' +
+                    '<label style="font-size:10px;color:var(--text-muted);text-transform:uppercase;letter-spacing:0.5px;">Ciclo de Vida Util (12 meses)</label>' +
+                    '<div style="height:10px;background:rgba(255,255,255,0.06);border-radius:5px;overflow:hidden;margin-top:8px;"><div style="height:100%;width:' + pct + '%;background:' + cor + ';border-radius:5px;transition:width 0.4s ease;"></div></div>' +
+                    '<div style="display:flex;justify-content:space-between;margin-top:6px;font-size:11px;">' +
+                        '<span style="color:' + cor + ';font-weight:700;">' + (faseLabels[r.faseCiclo] || r.faseCiclo) + '</span>' +
+                        '<span style="color:var(--text-muted);font-family:\'JetBrains Mono\',monospace;">' + r.diasDesdeInicioCiclo + ' / 365 dias</span>' +
+                    '</div>' +
+                    '<div style="display:flex;justify-content:space-between;margin-top:8px;padding-top:8px;border-top:1px solid rgba(255,255,255,0.04);">' +
+                        '<div style="display:flex;gap:12px;">' + dotsHtml + '</div>' +
+                        '<span style="font-size:11px;font-weight:600;color:' + (r.diasRestantes > 0 ? cor : 'var(--red)') + ';">' + diasTxt + '</span>' +
+                    '</div>' +
+                '</div>';
+            })() +
             trocasHtml +
             '</div>',
             '<button onclick="closeModal()" class="btn btn-ghost btn-sm">Fechar</button><button onclick="showRamalForm(' + r.id + ')" class="btn btn-primary btn-sm"><i class="fas fa-pen"></i> Editar</button>'
