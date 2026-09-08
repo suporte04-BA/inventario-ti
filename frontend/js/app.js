@@ -25,26 +25,26 @@ Chart.defaults.borderColor = 'rgba(255,255,255,0.04)';
 Chart.defaults.font.family = "'Inter', sans-serif";
 
 var MOCK_COMPUTADORES = [
-    { id: 1, nomePc: 'PC-ADM-001', numeroSerie: 'SN-2024-001', modeloMarca: 'Dell OptiPlex 7090', processador: 'Intel Core i7-11700', memoriaRam: '16GB DDR4', armazenamento: '512GB SSD NVMe', usuarioDesignado: 'Carlos Silva', fornecedor: 'Dell Tecnologia', status: 'ATIVO', dataCadastro: '2024-01-15T10:00:00' },
-    { id: 2, nomePc: 'PC-ADM-002', numeroSerie: 'SN-2024-002', modeloMarca: 'Lenovo ThinkCentre M920', processador: 'Intel Core i5-9500', memoriaRam: '8GB DDR4', armazenamento: '256GB SSD', usuarioDesignado: 'Ana Beatriz', fornecedor: 'Lenovo', status: 'ATIVO', dataCadastro: '2024-02-10T10:00:00' },
-    { id: 3, nomePc: 'PC-LOG-001', numeroSerie: 'SN-2024-003', modeloMarca: 'HP ProDesk 400 G7', processador: 'Intel Core i5-10500', memoriaRam: '8GB DDR4', armazenamento: '256GB SSD', usuarioDesignado: 'Roberto Souza', fornecedor: 'HP Brasil', status: 'MANUTENCAO_PREVENTIVA', dataCadastro: '2024-01-20T10:00:00' },
-    { id: 4, nomePc: 'PC-LOG-002', numeroSerie: 'SN-2024-004', modeloMarca: 'Dell Vostro 3681', processador: 'Intel Core i3-10100', memoriaRam: '4GB DDR4', armazenamento: '1TB HDD', usuarioDesignado: 'Maria Oliveira', fornecedor: 'Dell Tecnologia', status: 'MANUTENCAO_EMERGENCIAL', dataCadastro: '2024-03-05T10:00:00' },
-    { id: 5, nomePc: 'PC-TI-001', numeroSerie: 'SN-2024-005', modeloMarca: 'Lenovo ThinkPad T490', processador: 'Intel Core i7-8565U', memoriaRam: '16GB DDR4', armazenamento: '512GB SSD', usuarioDesignado: 'Joao Pedro', fornecedor: 'Lenovo', status: 'ATIVO', dataCadastro: '2024-01-10T10:00:00' },
-    { id: 6, nomePc: 'PC-FIN-001', numeroSerie: 'SN-2024-006', modeloMarca: 'HP EliteDesk 800 G6', processador: 'Intel Core i5-10500T', memoriaRam: '8GB DDR4', armazenamento: '256GB SSD', usuarioDesignado: 'Fernanda Lima', fornecedor: 'HP Brasil', status: 'ATIVO', dataCadastro: '2024-02-15T10:00:00' },
-    { id: 7, nomePc: 'PC-FIN-002', numeroSerie: 'SN-2024-007', modeloMarca: 'Dell OptiPlex 3080', processador: 'Intel Core i3-10100', memoriaRam: '4GB DDR4', armazenamento: '500GB HDD', usuarioDesignado: 'Pedro Henrique', fornecedor: 'Dell Tecnologia', status: 'MANUTENCAO_PREDITIVA', dataCadastro: '2024-03-01T10:00:00' },
-    { id: 8, nomePc: 'PC-RH-001', numeroSerie: 'SN-2024-008', modeloMarca: 'Acer Veriton M4660G', processador: 'Intel Core i5-9400', memoriaRam: '8GB DDR4', armazenamento: '256GB SSD', usuarioDesignado: 'Juliana Costa', fornecedor: 'Acer', status: 'ATIVO', dataCadastro: '2024-01-25T10:00:00' },
-    { id: 9, nomePc: 'PC-VEN-001', numeroSerie: 'SN-2024-009', modeloMarca: 'Lenovo IdeaCentre 520', processador: 'AMD Ryzen 5 3500', memoriaRam: '8GB DDR4', armazenamento: '1TB HDD', usuarioDesignado: 'Lucas Almeida', fornecedor: 'Lenovo', status: 'CONCLUIDO', dataCadastro: '2024-02-20T10:00:00' },
-    { id: 10, nomePc: 'PC-VEN-002', numeroSerie: 'SN-2024-010', modeloMarca: 'HP ProOne 440 G6', processador: 'Intel Core i5-9500T', memoriaRam: '8GB DDR4', armazenamento: '256GB SSD', usuarioDesignado: 'Mariana Santos', fornecedor: 'HP Brasil', status: 'ATIVO', dataCadastro: '2024-03-10T10:00:00' },
-    { id: 11, nomePc: 'PC-PRD-001', numeroSerie: 'SN-2024-011', modeloMarca: 'Dell Precision 3430', processador: 'Intel Core i7-8700', memoriaRam: '32GB DDR4', armazenamento: '1TB SSD', usuarioDesignado: 'Técnico A', fornecedor: 'Dell Tecnologia', status: 'ATIVO', dataCadastro: '2024-01-05T10:00:00' },
-    { id: 12, nomePc: 'PC-PRD-002', numeroSerie: 'SN-2024-012', modeloMarca: 'Lenovo ThinkStation P330', processador: 'Intel Core i9-9900', memoriaRam: '64GB DDR4', armazenamento: '2TB SSD', usuarioDesignado: 'Técnico B', fornecedor: 'Lenovo', status: 'ATIVO', dataCadastro: '2024-02-01T10:00:00' },
-    { id: 13, nomePc: 'PC-PRD-003', numeroSerie: 'SN-2024-013', modeloMarca: 'HP Z2 Tower G4', processador: 'Intel Core i7-9700', memoriaRam: '16GB DDR4', armazenamento: '512GB SSD', usuarioDesignado: 'Técnico C', fornecedor: 'HP Brasil', status: 'MANUTENCAO_PREVENTIVA', dataCadastro: '2024-03-15T10:00:00' },
-    { id: 14, nomePc: 'PC-ADM-003', numeroSerie: 'SN-2024-014', modeloMarca: 'Dell Latitude 5520', processador: 'Intel Core i5-1135G7', memoriaRam: '8GB DDR4', armazenamento: '256GB SSD', usuarioDesignado: 'Gerente TI', fornecedor: 'Dell Tecnologia', status: 'ATIVO', dataCadastro: '2024-01-18T10:00:00' },
-    { id: 15, nomePc: 'PC-ALM-001', numeroSerie: 'SN-2024-015', modeloMarca: 'Acer Aspire TC-885', processador: 'Intel Core i3-9100', memoriaRam: '4GB DDR4', armazenamento: '1TB HDD', usuarioDesignado: 'Auxiliar Almox', fornecedor: 'Acer', status: 'MANUTENCAO_EMERGENCIAL', dataCadastro: '2024-02-28T10:00:00' },
-    { id: 16, nomePc: 'PC-ADM-004', numeroSerie: 'SN-2024-016', modeloMarca: 'Lenovo ThinkCentre M70s', processador: 'Intel Core i5-11400', memoriaRam: '16GB DDR4', armazenamento: '512GB SSD', usuarioDesignado: 'Assistente Adm', fornecedor: 'Lenovo', status: 'ATIVO', dataCadastro: '2024-03-20T10:00:00' },
-    { id: 17, nomePc: 'PC-LOG-003', numeroSerie: 'SN-2024-017', modeloMarca: 'HP ProDesk 600 G6', processador: 'Intel Core i7-10700', memoriaRam: '16GB DDR4', armazenamento: '512GB SSD', usuarioDesignado: 'Supervisor Log', fornecedor: 'HP Brasil', status: 'CONCLUIDO', dataCadastro: '2024-01-22T10:00:00' },
-    { id: 18, nomePc: 'PC-FIN-003', numeroSerie: 'SN-2024-018', modeloMarca: 'Dell OptiPlex 5090', processador: 'Intel Core i5-11500', memoriaRam: '8GB DDR4', armazenamento: '256GB SSD', usuarioDesignado: 'Analista Fin', fornecedor: 'Dell Tecnologia', status: 'ATIVO', dataCadastro: '2024-02-12T10:00:00' },
-    { id: 19, nomePc: 'PC-VEN-003', numeroSerie: 'SN-2024-019', modeloMarca: 'Lenovo ThinkCentre M920t', processador: 'Intel Core i5-9500', memoriaRam: '8GB DDR4', armazenamento: '256GB SSD', usuarioDesignado: 'Consultor Vendas', fornecedor: 'Lenovo', status: 'ATIVO', dataCadastro: '2024-03-08T10:00:00' },
-    { id: 20, nomePc: 'PC-TI-002', numeroSerie: 'SN-2024-020', modeloMarca: 'Dell XPS 8940', processador: 'Intel Core i9-11900', memoriaRam: '32GB DDR4', armazenamento: '1TB SSD NVMe', usuarioDesignado: 'Dev Senior', fornecedor: 'Dell Tecnologia', status: 'ATIVO', dataCadastro: '2024-01-08T10:00:00' }
+    { id: 1, nomePc: 'PC-ADM-001', numeroSerie: 'SN-2024-001', modeloMarca: 'Dell OptiPlex 7090', processador: 'Intel Core i7-11700', memoriaRam: '16GB DDR4', armazenamento: '512GB SSD NVMe', usuarioDesignado: 'Carlos Silva', fornecedor: 'Dell Tecnologia', status: 'ATIVO', fotoUrl: '', dataCadastro: '2024-01-15T10:00:00', dataInicioCiclo: _dyn(_curYear, _curMonth - 2, 1), proximaManutencao: _dyn(_curYear, _curMonth + 6, 1), dataUltimaManutencao: _dyn(_curYear, _curMonth - 2, 1) },
+    { id: 2, nomePc: 'PC-ADM-002', numeroSerie: 'SN-2024-002', modeloMarca: 'Lenovo ThinkCentre M920', processador: 'Intel Core i5-9500', memoriaRam: '8GB DDR4', armazenamento: '256GB SSD', usuarioDesignado: 'Ana Beatriz', fornecedor: 'Lenovo', status: 'ATIVO', fotoUrl: '', dataCadastro: '2024-02-10T10:00:00', dataInicioCiclo: _dyn(_curYear, _curMonth - 5, 1), proximaManutencao: _dyn(_curYear, _curMonth + 3, 1), dataUltimaManutencao: _dyn(_curYear, _curMonth - 5, 1) },
+    { id: 3, nomePc: 'PC-LOG-001', numeroSerie: 'SN-2024-003', modeloMarca: 'HP ProDesk 400 G7', processador: 'Intel Core i5-10500', memoriaRam: '8GB DDR4', armazenamento: '256GB SSD', usuarioDesignado: 'Roberto Souza', fornecedor: 'HP Brasil', status: 'MANUTENCAO_PREVENTIVA', fotoUrl: '', dataCadastro: '2024-01-20T10:00:00', dataInicioCiclo: _dyn(_curYear, _curMonth - 7, 1), proximaManutencao: _dyn(_curYear, _curMonth + 1, 1), dataUltimaManutencao: _dyn(_curYear, _curMonth - 1, 15) },
+    { id: 4, nomePc: 'PC-LOG-002', numeroSerie: 'SN-2024-004', modeloMarca: 'Dell Vostro 3681', processador: 'Intel Core i3-10100', memoriaRam: '4GB DDR4', armazenamento: '1TB HDD', usuarioDesignado: 'Maria Oliveira', fornecedor: 'Dell Tecnologia', status: 'MANUTENCAO_EMERGENCIAL', fotoUrl: '', dataCadastro: '2024-03-05T10:00:00', dataInicioCiclo: _dyn(_curYear, _curMonth - 9, 1), proximaManutencao: _dyn(_curYear, _curMonth - 1, 1), dataUltimaManutencao: _dyn(_curYear, _curMonth - 3, 10) },
+    { id: 5, nomePc: 'PC-TI-001', numeroSerie: 'SN-2024-005', modeloMarca: 'Lenovo ThinkPad T490', processador: 'Intel Core i7-8565U', memoriaRam: '16GB DDR4', armazenamento: '512GB SSD', usuarioDesignado: 'Joao Pedro', fornecedor: 'Lenovo', status: 'ATIVO', fotoUrl: '', dataCadastro: '2024-01-10T10:00:00', dataInicioCiclo: _dyn(_curYear, _curMonth, 1), proximaManutencao: _dyn(_curYear, _curMonth + 8, 1), dataUltimaManutencao: _dyn(_curYear, _curMonth, 1) },
+    { id: 6, nomePc: 'PC-FIN-001', numeroSerie: 'SN-2024-006', modeloMarca: 'HP EliteDesk 800 G6', processador: 'Intel Core i5-10500T', memoriaRam: '8GB DDR4', armazenamento: '256GB SSD', usuarioDesignado: 'Fernanda Lima', fornecedor: 'HP Brasil', status: 'ATIVO', fotoUrl: '', dataCadastro: '2024-02-15T10:00:00', dataInicioCiclo: _dyn(_curYear, _curMonth - 3, 1), proximaManutencao: _dyn(_curYear, _curMonth + 5, 1), dataUltimaManutencao: _dyn(_curYear, _curMonth - 3, 1) },
+    { id: 7, nomePc: 'PC-FIN-002', numeroSerie: 'SN-2024-007', modeloMarca: 'Dell OptiPlex 3080', processador: 'Intel Core i3-10100', memoriaRam: '4GB DDR4', armazenamento: '500GB HDD', usuarioDesignado: 'Pedro Henrique', fornecedor: 'Dell Tecnologia', status: 'MANUTENCAO_PREDITIVA', fotoUrl: '', dataCadastro: '2024-03-01T10:00:00', dataInicioCiclo: _dyn(_curYear, _curMonth - 6, 1), proximaManutencao: _dyn(_curYear, _curMonth + 2, 1), dataUltimaManutencao: _dyn(_curYear, _curMonth - 1, 5) },
+    { id: 8, nomePc: 'PC-RH-001', numeroSerie: 'SN-2024-008', modeloMarca: 'Acer Veriton M4660G', processador: 'Intel Core i5-9400', memoriaRam: '8GB DDR4', armazenamento: '256GB SSD', usuarioDesignado: 'Juliana Costa', fornecedor: 'Acer', status: 'ATIVO', fotoUrl: '', dataCadastro: '2024-01-25T10:00:00', dataInicioCiclo: _dyn(_curYear, _curMonth - 1, 1), proximaManutencao: _dyn(_curYear, _curMonth + 7, 1), dataUltimaManutencao: _dyn(_curYear, _curMonth - 1, 1) },
+    { id: 9, nomePc: 'PC-VEN-001', numeroSerie: 'SN-2024-009', modeloMarca: 'Lenovo IdeaCentre 520', processador: 'AMD Ryzen 5 3500', memoriaRam: '8GB DDR4', armazenamento: '1TB HDD', usuarioDesignado: 'Lucas Almeida', fornecedor: 'Lenovo', status: 'CONCLUIDO', fotoUrl: '', dataCadastro: '2024-02-20T10:00:00', dataInicioCiclo: _dyn(_curYear, _curMonth - 4, 1), proximaManutencao: _dyn(_curYear, _curMonth + 4, 1), dataUltimaManutencao: _dyn(_curYear, _curMonth - 4, 1) },
+    { id: 10, nomePc: 'PC-VEN-002', numeroSerie: 'SN-2024-010', modeloMarca: 'HP ProOne 440 G6', processador: 'Intel Core i5-9500T', memoriaRam: '8GB DDR4', armazenamento: '256GB SSD', usuarioDesignado: 'Mariana Santos', fornecedor: 'HP Brasil', status: 'ATIVO', fotoUrl: '', dataCadastro: '2024-03-10T10:00:00', dataInicioCiclo: _dyn(_curYear, _curMonth - 8, 1), proximaManutencao: _dyn(_curYear, _curMonth, 1), dataUltimaManutencao: _dyn(_curYear, _curMonth - 2, 20) },
+    { id: 11, nomePc: 'PC-PRD-001', numeroSerie: 'SN-2024-011', modeloMarca: 'Dell Precision 3430', processador: 'Intel Core i7-8700', memoriaRam: '32GB DDR4', armazenamento: '1TB SSD', usuarioDesignado: 'Técnico A', fornecedor: 'Dell Tecnologia', status: 'ATIVO', fotoUrl: '', dataCadastro: '2024-01-05T10:00:00', dataInicioCiclo: _dyn(_curYear, _curMonth - 2, 15), proximaManutencao: _dyn(_curYear, _curMonth + 6, 15), dataUltimaManutencao: _dyn(_curYear, _curMonth - 2, 15) },
+    { id: 12, nomePc: 'PC-PRD-002', numeroSerie: 'SN-2024-012', modeloMarca: 'Lenovo ThinkStation P330', processador: 'Intel Core i9-9900', memoriaRam: '64GB DDR4', armazenamento: '2TB SSD', usuarioDesignado: 'Técnico B', fornecedor: 'Lenovo', status: 'ATIVO', fotoUrl: '', dataCadastro: '2024-02-01T10:00:00', dataInicioCiclo: _dyn(_curYear, _curMonth - 5, 15), proximaManutencao: _dyn(_curYear, _curMonth + 3, 15), dataUltimaManutencao: _dyn(_curYear, _curMonth - 5, 15) },
+    { id: 13, nomePc: 'PC-PRD-003', numeroSerie: 'SN-2024-013', modeloMarca: 'HP Z2 Tower G4', processador: 'Intel Core i7-9700', memoriaRam: '16GB DDR4', armazenamento: '512GB SSD', usuarioDesignado: 'Técnico C', fornecedor: 'HP Brasil', status: 'MANUTENCAO_PREVENTIVA', fotoUrl: '', dataCadastro: '2024-03-15T10:00:00', dataInicioCiclo: _dyn(_curYear, _curMonth - 6, 10), proximaManutencao: _dyn(_curYear, _curMonth + 2, 10), dataUltimaManutencao: _dyn(_curYear, _curMonth - 1, 10) },
+    { id: 14, nomePc: 'PC-ADM-003', numeroSerie: 'SN-2024-014', modeloMarca: 'Dell Latitude 5520', processador: 'Intel Core i5-1135G7', memoriaRam: '8GB DDR4', armazenamento: '256GB SSD', usuarioDesignado: 'Gerente TI', fornecedor: 'Dell Tecnologia', status: 'ATIVO', fotoUrl: '', dataCadastro: '2024-01-18T10:00:00', dataInicioCiclo: _dyn(_curYear, _curMonth - 3, 10), proximaManutencao: _dyn(_curYear, _curMonth + 5, 10), dataUltimaManutencao: _dyn(_curYear, _curMonth - 3, 10) },
+    { id: 15, nomePc: 'PC-ALM-001', numeroSerie: 'SN-2024-015', modeloMarca: 'Acer Aspire TC-885', processador: 'Intel Core i3-9100', memoriaRam: '4GB DDR4', armazenamento: '1TB HDD', usuarioDesignado: 'Auxiliar Almox', fornecedor: 'Acer', status: 'MANUTENCAO_EMERGENCIAL', fotoUrl: '', dataCadastro: '2024-02-28T10:00:00', dataInicioCiclo: _dyn(_curYear, _curMonth - 10, 1), proximaManutencao: _dyn(_curYear, _curMonth - 2, 1), dataUltimaManutencao: _dyn(_curYear, _curMonth - 4, 5) },
+    { id: 16, nomePc: 'PC-ADM-004', numeroSerie: 'SN-2024-016', modeloMarca: 'Lenovo ThinkCentre M70s', processador: 'Intel Core i5-11400', memoriaRam: '16GB DDR4', armazenamento: '512GB SSD', usuarioDesignado: 'Assistente Adm', fornecedor: 'Lenovo', status: 'ATIVO', fotoUrl: '', dataCadastro: '2024-03-20T10:00:00', dataInicioCiclo: _dyn(_curYear, _curMonth - 1, 20), proximaManutencao: _dyn(_curYear, _curMonth + 7, 20), dataUltimaManutencao: _dyn(_curYear, _curMonth - 1, 20) },
+    { id: 17, nomePc: 'PC-LOG-003', numeroSerie: 'SN-2024-017', modeloMarca: 'HP ProDesk 600 G6', processador: 'Intel Core i7-10700', memoriaRam: '16GB DDR4', armazenamento: '512GB SSD', usuarioDesignado: 'Supervisor Log', fornecedor: 'HP Brasil', status: 'CONCLUIDO', fotoUrl: '', dataCadastro: '2024-01-22T10:00:00', dataInicioCiclo: _dyn(_curYear, _curMonth - 4, 10), proximaManutencao: _dyn(_curYear, _curMonth + 4, 10), dataUltimaManutencao: _dyn(_curYear, _curMonth - 4, 10) },
+    { id: 18, nomePc: 'PC-FIN-003', numeroSerie: 'SN-2024-018', modeloMarca: 'Dell OptiPlex 5090', processador: 'Intel Core i5-11500', memoriaRam: '8GB DDR4', armazenamento: '256GB SSD', usuarioDesignado: 'Analista Fin', fornecedor: 'Dell Tecnologia', status: 'ATIVO', fotoUrl: '', dataCadastro: '2024-02-12T10:00:00', dataInicioCiclo: _dyn(_curYear, _curMonth - 7, 5), proximaManutencao: _dyn(_curYear, _curMonth + 1, 5), dataUltimaManutencao: _dyn(_curYear, _curMonth - 1, 5) },
+    { id: 19, nomePc: 'PC-VEN-003', numeroSerie: 'SN-2024-019', modeloMarca: 'Lenovo ThinkCentre M920t', processador: 'Intel Core i5-9500', memoriaRam: '8GB DDR4', armazenamento: '256GB SSD', usuarioDesignado: 'Consultor Vendas', fornecedor: 'Lenovo', status: 'ATIVO', fotoUrl: '', dataCadastro: '2024-03-08T10:00:00', dataInicioCiclo: _dyn(_curYear, _curMonth, 5), proximaManutencao: _dyn(_curYear, _curMonth + 8, 5), dataUltimaManutencao: _dyn(_curYear, _curMonth, 5) },
+    { id: 20, nomePc: 'PC-TI-002', numeroSerie: 'SN-2024-020', modeloMarca: 'Dell XPS 8940', processador: 'Intel Core i9-11900', memoriaRam: '32GB DDR4', armazenamento: '1TB SSD NVMe', usuarioDesignado: 'Dev Senior', fornecedor: 'Dell Tecnologia', status: 'ATIVO', fotoUrl: '', dataCadastro: '2024-01-08T10:00:00', dataInicioCiclo: _dyn(_curYear, _curMonth - 2, 10), proximaManutencao: _dyn(_curYear, _curMonth + 6, 10), dataUltimaManutencao: _dyn(_curYear, _curMonth - 2, 10) }
 ];
 
 var _curDate = new Date();
@@ -153,6 +153,24 @@ function mockAuth(user, pass) {
     var c = creds[user];
     if (!c || c.senha!== pass) return null;
     return { token: 'mock-token-' + user + '-' + Date.now(), username: user, nomeCompleto: c.nome, perfil: c.perfil, expiresIn: 1800000 };
+}
+
+function computeCycle(eq) {
+    if (!eq.dataInicioCiclo) return eq;
+    var inicio = new Date(eq.dataInicioCiclo);
+    var now = new Date();
+    var diffMs = now - inicio;
+    var diasDesdeInicio = Math.floor(diffMs / (1000 * 60 * 60 * 24));
+    var diasTotal = 240;
+    var diasRestantes = diasTotal - diasDesdeInicio;
+    var fase = 'ATIVO';
+    if (diasDesdeInicio > 120 && diasDesdeInicio <= 180) fase = 'PREDITIVO';
+    else if (diasDesdeInicio > 180 && diasDesdeInicio <= 240) fase = 'PREVENTIVO';
+    else if (diasDesdeInicio > 240) fase = 'ATRASADO';
+    eq.diasDesdeInicioCiclo = diasDesdeInicio;
+    eq.diasRestantes = diasRestantes;
+    eq.faseCiclo = fase;
+    return eq;
 }
 
 function syncManutencaoWithComputador(computadorId, manutStatus, manutTipo) {
@@ -316,13 +334,14 @@ function mockFetch(url, opts) {
             if (statusF && c.status !== statusF) return false;
             if (termo && (c.nomePc.toLowerCase().indexOf(termo) === -1 && c.modeloMarca.toLowerCase().indexOf(termo) === -1 && c.usuarioDesignado.toLowerCase().indexOf(termo) === -1 && c.numeroSerie.toLowerCase().indexOf(termo) === -1)) return false;
             return true;
-        });
+        }).map(function(c) { return computeCycle(Object.assign({}, c)); });
         var start = page * size;
         return { content: filtered.slice(start, start + size), totalElements: filtered.length, totalPages: Math.ceil(filtered.length / size), number: page, size: size };
     }
 
     if (url.indexOf('/api/computadores/') !== -1 && method === 'GET') {
-        return MOCK_COMPUTADORES.find(function(c) { return c.id === parseInt(url.split('/api/computadores/')[1]); }) || null;
+        var found = MOCK_COMPUTADORES.find(function(c) { return c.id === parseInt(url.split('/api/computadores/')[1]); });
+        return found ? computeCycle(Object.assign({}, found)) : null;
     }
     if (url.indexOf('/api/computadores') !== -1 && method === 'POST') {
         body.id = MOCK_COMPUTADORES.length > 0 ? Math.max.apply(null, MOCK_COMPUTADORES.map(function(c) { return c.id; })) + 1 : 1;
@@ -356,12 +375,17 @@ function mockFetch(url, opts) {
         var stF = ps2.get('status') || '';
         var tmF = (ps2.get('termo') || '').toLowerCase();
         var compIdF = parseInt(ps2.get('computadorId')) || 0;
+        var showConc = ps2.get('showConcluidas') === 'true';
         var pg = parseInt(ps2.get('page')) || 0;
         var sz = parseInt(ps2.get('size')) || 10;
         if (method === 'GET' && url.indexOf('/api/manutencoes/') === -1) {
             var mf = MOCK_MANUTENCOES.filter(function(m) {
                 if (compIdF && m.computadorId !== compIdF) return false;
-                if (stF && m.status !== stF) return false;
+                if (stF) {
+                    if (m.status !== stF) return false;
+                } else if (!showConc) {
+                    if (m.status === 'CONCLUIDA' || m.status === 'CANCELADA') return false;
+                }
                 if (tmF && (m.computadorNome || '').toLowerCase().indexOf(tmF) === -1 && (m.tecnicoResponsavel || '').toLowerCase().indexOf(tmF) === -1 && (m.descricao || '').toLowerCase().indexOf(tmF) === -1) return false;
                 return true;
             });
@@ -1083,7 +1107,7 @@ function renderComputadoresCards(data) {
         if (eq.diasDesdeInicioCiclo !== null && eq.diasDesdeInicioCiclo !== undefined) {
             var pct = Math.min(100, Math.max(0, (eq.diasDesdeInicioCiclo / 240) * 100));
             var corCiclo = pct < 50 ? 'var(--green)' : pct < 75 ? 'var(--yellow)' : 'var(--red)';
-            var cicloTexto = eq.diasRestantes > 0 ? eq.diasRestantes + 'd restantes' : Math.abs(eq.diasRestantes) + 'd atrasado';
+            var cicloTexto = eq.diasRestantes > 0 ? eq.diasRestantes + 'd restantes' : eq.diasRestantes === 0 ? 'Vence hoje' : Math.abs(eq.diasRestantes) + 'd atrasado';
             var faseLabel = { 'ATIVO': 'Ativo', 'PREDITIVO': 'Preditivo', 'PREVENTIVO': 'Preventivo', 'ATRASADO': 'Atrasado' };
             cicloHtml = '<div class="pc-card-ciclo"><div class="ciclo-bar"><div class="ciclo-fill" style="width:' + pct + '%;background:' + corCiclo + ';"></div></div><div class="ciclo-info"><span class="ciclo-fase" style="color:' + corCiclo + ';">' + (faseLabel[eq.faseCiclo] || eq.faseCiclo) + '</span><span class="ciclo-dias">' + cicloTexto + '</span></div></div>';
         }
@@ -1671,7 +1695,7 @@ async function loadManutencoes(page) {
     _manFilters.status = st;
     _manFilters.termo = sb;
     try {
-        var allUrl = '/api/manutencoes?page=' + currentPage.manutencoes + '&size=10' + (st ? '&status=' + st : '') + (sb ? '&termo=' + encodeURIComponent(sb) : '');
+        var allUrl = '/api/manutencoes?page=' + currentPage.manutencoes + '&size=10' + (st ? '&status=' + st : '') + (sb ? '&termo=' + encodeURIComponent(sb) : '') + (_manFilters.showConcluidas ? '&showConcluidas=true' : '');
         var d = await apiFetch(allUrl);
         renderManutencoes(d, sb, st);
         renderManKpis();
@@ -1746,9 +1770,6 @@ function renderManutencoes(data, searchTerm, serverStatus) {
         return;
     }
     var items = data.content;
-    if (!serverStatus && !_manFilters.showConcluidas && !_manFilters.status) {
-        items = items.filter(function(m) { return m.status !== 'CONCLUIDA' && m.status !== 'CANCELADA'; });
-    }
     if (searchTerm) {
         var sl = searchTerm.toLowerCase();
         items = items.filter(function(m) { return (m.computadorNome || '').toLowerCase().indexOf(sl) !== -1 || (m.tecnicoResponsavel || '').toLowerCase().indexOf(sl) !== -1 || (m.descricao || '').toLowerCase().indexOf(sl) !== -1; });
@@ -1856,7 +1877,7 @@ async function showManutencaoForm(id) {
                     }
                 } catch (e) { console.warn('[MANUT] Erro ao sincronizar OS:', e); }
             }
-            closeModal(); loadManutencoes(0); refreshAllData();
+            closeModal(); loadManutencoes(0);
         } catch (e) { showToast(e.message, 'error'); }
     });
     setupManutencaoPhotoUpload();
